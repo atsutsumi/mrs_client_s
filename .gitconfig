@@ -1,0 +1,7 @@
+[remote "origin"]
+  url = https://github.com/atsutsumi/mrs_client_s.git
+  fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
+
