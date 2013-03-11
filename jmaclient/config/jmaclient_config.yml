@@ -1,0 +1,13 @@
+port: 30000
+host: "localhost"
+
+max_buffer: 702000
+
+keepalive_interval: 30
+connect_interval: 10
+
+unix_socket: "/Users/igakuratakayuki/RubyWorkspace/jmaclient/tmp/jmaclient_receiver.socket"
+
+# 0 -> don't add header
+# 1 -> add header
+data_mode: 0
