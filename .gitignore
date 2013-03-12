@@ -6,6 +6,8 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+log
+.gitconfig
 
 # YARD artifacts
 .yardoc
