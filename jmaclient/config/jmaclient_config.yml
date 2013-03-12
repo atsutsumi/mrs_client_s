@@ -1,13 +1,21 @@
-port: 30000
+# 接続先サーバのIPアドレスまたはホスト名
 host: "localhost"
 
-max_buffer: 702000
+# 接続先サーバのポート番号
+port: 30000
 
+# ヘルスチェックの再試行インターバル
 keepalive_interval: 30
-connect_interval: 10
 
-unix_socket: "/Users/igakuratakayuki/RubyWorkspace/jmaclient/tmp/jmaclient_receiver.socket"
+# サーバ接続時の再試行インターバル
+open_interval: 10
 
-# 0 -> don't add header
-# 1 -> add header
-data_mode: 0
+# UnixDomainSocketファイル
+unix_socket: "/tmp/jmaclient.sock"
+
+# ヘッダ付与モード
+# 0 -> ヘッダ付与なし
+# 1 -> JMAヘッダを付与
+# 2 -> BCH,TCHヘッダを付与
+data_mode: 2
+

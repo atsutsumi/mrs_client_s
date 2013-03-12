@@ -4,12 +4,15 @@ require "yaml"
 require "log4r"
 require "log4r/yamlconfigurator"
 require "active_support/core_ext"
+require "stringio"
 
 require_relative 'jmaclient/main'
 require_relative 'jmaclient/sender'
 require_relative 'jmaclient/receiver'
 require_relative 'jmaclient/util'
-require_relative 'jmaclient/socket_client'
+require_relative 'jmaclient/socket'
+require_relative 'jmaclient/header_helper'
+
 
 #
 # アプリケーションメイン
@@ -35,7 +38,7 @@ module JmaClient
   # Sets up the configuration for log output.
   def self.load_log_config
     if Log4r::Logger["log4r"].nil?
-      Log4r::YamlConfigurator.load_yaml_file(File.join(Util.get_config_path(__FILE__), "log4r.yaml"))
+      Log4r::YamlConfigurator.load_yaml_file(File.join(Util.get_config_path(__FILE__), "log4r.yml"))
     end
   end
   

@@ -15,11 +15,8 @@ module JmaClient
       @sender = nil
       @receiver = nil
       @log = JmaClient.logger
-      # UnixDomainSocketのファイルを削除する
-      #File.delete(@options['unix_socket'])
-      
     end
-    
+
     #
     # メイン処理開始
     #
@@ -40,6 +37,7 @@ module JmaClient
       }
       
       begin
+        # メインスレッドが終了しないように各スレッドを停止
         sender_thread.join
         receiver_thread.join
       rescue Interrupt
