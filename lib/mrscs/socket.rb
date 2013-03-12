@@ -2,7 +2,7 @@
 
 require 'socket'
 
-module JmaClient
+module Mrscs
   
   #
   # TCPSocketのラッパークラス
@@ -27,7 +27,7 @@ module JmaClient
     def initialize(options)
       @options = options
       @socket = nil
-      @log = JmaClient.logger
+      @log = Mrscs.logger
     end
     
     #
@@ -74,4 +74,4 @@ module JmaClient
     
   end # Socket
 
-end # JmaClient
+end # Mrscs

@@ -1,6 +1,6 @@
 # coding: UTF-8
 
-module JmaClient
+module Mrscs
 
   class Sender
     
@@ -15,7 +15,7 @@ module JmaClient
       @port = options['port']
       @data_mode = options['data_mode']
       @socket = Socket.new(options)
-      @log = JmaClient.logger
+      @log = Mrscs.logger
     end
 
     #
@@ -73,23 +73,24 @@ module JmaClient
       begin
         # data_modeの設定によりデータをそのまま送るかヘッダを付与するか判定
         if @data_mode == 0
+          @log.info("データにヘッダを付与せず送信します。")
           @socket.write(data)
         elsif @data_mode == 1
-          p 'JMAヘッダを付与'
+          @log.info("データにJMAヘッダを付与して送信します。")
           added_data = HeaderHelper.add_jma_header(data, "BI")
           @socket.write(added_data)
         elsif @data_mode == 2
-          p 'BCHヘッダを付与'
+          @log.info("データにBCHとJMAヘッダを付与して送信します。")
           added_data = HeaderHelper.add_bch_header(data)
           added_data = HeaderHelper.add_jma_header(added_data, "BI")
           @socket.write(added_data)
         end
       rescue => exception
-        p exception
+        @log.warn(exception)
         @log.warn("JMA受信サーバへのデータ送信に失敗しました。データの再送は行いません。")
       end
     end
     
   end # Sender
 
-end # JmaClient
+end # Mrscs

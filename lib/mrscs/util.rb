@@ -1,4 +1,4 @@
-module JmaClient
+module Mrscs
   # Utility methods for Lgdisit module
 	class Util
 
@@ -10,6 +10,11 @@ module JmaClient
 		def self.get_config_path(file_path)
 			@config_path ||= File.join(get_parent_path(file_path), "config")
 			return @config_path
+		end
+		
+		def self.get_log_path(file_path)
+		  @log_path ||= File.join(get_parent_path(file_path), "log")
+			return @log_path
 		end
 
 		# Retrieves a path of the directory that contains configuration files 
@@ -41,5 +46,7 @@ module JmaClient
 		def self.get_bracketed_string(string)
 			return "[" + string + "] "
 		end
-	end
-end
+
+	end  # Util
+
+end # Mrscs

@@ -7,14 +7,14 @@ base_dir = File.dirname(File.dirname(File.expand_path(__FILE__)))
 $LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 
 require "daemons"
-require "jmaclient"
+require "mrscs"
 
 pid_dir = File.join(base_dir,"/tmp")
 log_dir = File.join(base_dir,"/log")
 
 # setup options
 options = {
-  :app_name => 'jmaclient',
+  :app_name => 'mrscs',
 	:dir_mode => :script,
 	:dir => pid_dir,
 	:backtrace => true,
@@ -24,6 +24,6 @@ options = {
 }
 
 # start daemon
-Daemons.run_proc('jmaclient.rb', options) do
-	JmaClient.start_jmaclient
+Daemons.run_proc('mrscs.rb', options) do
+	Mrscs.start_mrscs
 end

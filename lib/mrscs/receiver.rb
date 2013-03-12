@@ -2,7 +2,7 @@
 
 require 'socket'
 
-module JmaClient
+module Mrscs
   
   #
   # ソケット接続制御にデータを通知する
@@ -20,7 +20,7 @@ module JmaClient
       @sock_path = options['unix_socket']
       # データ受信時のデリゲートクラス
       @delegate = nil
-      @log = JmaClient.logger
+      @log = Mrscs.logger
     end
     
     #
@@ -73,4 +73,4 @@ module JmaClient
     
   end # Receiver
   
-end # Receiver
+end # Mrscs

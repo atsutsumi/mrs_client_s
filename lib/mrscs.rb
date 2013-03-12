@@ -6,20 +6,20 @@ require "log4r/yamlconfigurator"
 require "active_support/core_ext"
 require "stringio"
 
-require_relative 'jmaclient/main'
-require_relative 'jmaclient/sender'
-require_relative 'jmaclient/receiver'
-require_relative 'jmaclient/util'
-require_relative 'jmaclient/socket'
-require_relative 'jmaclient/header_helper'
+require_relative 'mrscs/main'
+require_relative 'mrscs/sender'
+require_relative 'mrscs/receiver'
+require_relative 'mrscs/util'
+require_relative 'mrscs/socket'
+require_relative 'mrscs/header_helper'
 
 
 #
 # アプリケーションメイン
 #
-module JmaClient
+module Mrscs
 
-  # Gets Jmaclient system logger.
+  # Gets Mrscs system logger.
   # ==== Return
   # log4r logger
    def self.logger
@@ -28,11 +28,11 @@ module JmaClient
   end
 
 
-  # Retrieves the jma server configuration hash values
+  # Retrieves the Mrscs configuration hash values
   # ==== Return
   # configuration hash values
-  def self.get_jma_client_config
-    @jma_client_config ||= Util.get_yaml_config("jmaclient_config.yml")
+  def self.get_mrscs_config
+    @mrscs_config ||= Util.get_yaml_config("mrscs_config.yml")
   end
 
   # Sets up the configuration for log output.
@@ -42,10 +42,10 @@ module JmaClient
     end
   end
   
-  def self.start_jmaclient
+  def self.start_mrscs
     load_log_config
-    config = get_jma_client_config
+    config = get_mrscs_config
     Main.new(config).start
   end
 
-end # JmaClient
+end # Mrscs
