@@ -77,7 +77,7 @@ module Mrscs
           @socket.write(data)
         elsif @data_mode == 1
           @log.info("データにJMAヘッダを付与して送信します。")
-          added_data = HeaderHelper.add_jma_header(data, "BI")
+          added_data = HeaderHelper.add_jma_header(data, "JL")
           @socket.write(added_data)
         elsif @data_mode == 2
           @log.info("データにBCHとJMAヘッダを付与して送信します。")

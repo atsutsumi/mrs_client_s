@@ -1,14 +1,14 @@
 # coding: UTF-8
 
-module JmaClient
-  
-  @@bch_config = {}
+module Mrscs
   
   #
   # 送信データにヘッダを付与するためのヘルパークラス
   # 
   class HeaderHelper
-
+  
+    @@bch_config = {}
+  
     #
     # JMAヘッダを付与
     #

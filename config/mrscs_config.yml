@@ -17,5 +17,5 @@ unix_socket: "/tmp/jmaclient.sock"
 # 0 -> ヘッダ付与なし
 # 1 -> JMAヘッダを付与
 # 2 -> BCH,TCHヘッダを付与
-data_mode: 0
+data_mode: 1
 
