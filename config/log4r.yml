@@ -20,8 +20,8 @@ log4r_config:
     formatter:
      name: "P1"
      type: "PatternFormatter"
-     pattern: "%d [%l] %c(%t) - %m"
-#     pattern: "%d [%l] %m"
+#     pattern: "%d [%l] %c(%t) - %m"
+     pattern: "%d [%l] %m"
      date_pattern: "%H:%M:%S"
   - name: "F1"
     type: "FileOutputter"
@@ -30,6 +30,6 @@ log4r_config:
     formatter:
      name: "P2"
      type: "PatternFormatter"
-     pattern: "%d [%l] %C(%t) - %M"
-#     pattern: "%d [%l] %M"
+#     pattern: "%d [%l] %C(%t) - %M"
+     pattern: "%d [%l] %M"
      date_pattern: "%Y/%m/%d %H:%M:%S"

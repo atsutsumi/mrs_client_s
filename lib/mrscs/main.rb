@@ -10,6 +10,10 @@ module Mrscs
     #
     # 初期化
     #
+    # ==== Args
+    # _options_ :: 起動時の設定
+    # ==== Return
+    # ==== Raise
     def initialize(options)
       @options = options
       @sender = nil
@@ -20,6 +24,9 @@ module Mrscs
     #
     # メイン処理開始
     #
+    # ==== Args
+    # ==== Return
+    # ==== Raise
     def start
 		  @log.info("Mrscsアプリケーション起動...")
       # 送信用スレッド起動
@@ -49,5 +56,4 @@ module Mrscs
     end
     
   end # Main
-
 end # Mrscs

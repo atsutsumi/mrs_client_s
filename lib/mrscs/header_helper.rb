@@ -12,16 +12,34 @@ module Mrscs
     #
     # JMAヘッダを付与
     #
-    def self.add_jma_header(data, type)
+    # ==== Args
+    # _data_ :: 送信データ
+    # ==== Return
+    # _String_ :: JMAヘッダを付与したデータを返却
+    # Raise
+    def self.add_jma_header(data)
+      
+      # JMA設定ロード
+      @@jma_config ||= Util.get_yaml_config("jma_config.yml")
+      
+      # データ種別
+      message_type = @@jma_config['type']
+      
       # 8桁の文字列に変換(先頭は0埋め)
-      str_length = format("%08d", data.length)
+      message_length = format("%08d", data.length)
+      
       # データ作成
-      "#{str_length}#{type}#{data}"
+      "#{message_length}#{message_type}#{data}"
     end
 
     #
     # BCHヘッダを付与
     #
+    # ==== Args
+    # _data_ :: 送信データ
+    # ==== Return
+    # _String_ :: BCHヘッダを付与したデータを返却
+    # ==== Raise
     def self.add_bch_header(data)
       
       # BCH定義ロード
@@ -57,12 +75,18 @@ module Mrscs
       
       # BCHヘッダをバイナリ化して付与
       bin_bch = to_bin(str_bch)
+      
       "#{bin_bch}#{data}"
     end
     
     #
     # BCHヘッダをバイナリデータに変換するためのユーティリティメソッド
     #
+    # ==== Args
+    # _str_ :: BCH部分の文字列表現
+    # ==== Return
+    # _String_ :: BCHヘッダをバイナリ化したもの
+    # ====Raise
     def self.to_bin(str)
       # StringIOの機能でバイナリ化する
       sio = StringIO.new()
@@ -82,5 +106,4 @@ module Mrscs
     end
 
   end # HeaderHelper
-
 end # JmaClient

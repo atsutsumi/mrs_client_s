@@ -5,16 +5,21 @@ require 'socket'
 module Mrscs
   
   #
-  # ソケット接続制御にデータを通知する
-  # データはUnixドメインソケットで取得
+  # Unixドメインソケットサーバを起動し外部からのデータを受信します。
+  # データを受信した後はこのクラスで保持するdelegateインスタンスに受信データを連携します。
   #
   class Receiver
     
+    # アクセサ定義
     attr_accessor :delegate
     
     #
     # 初期化処理
     #
+    # ==== Args
+    # _options_ :: 起動時の設定
+    # ==== Return
+    # ==== Raise
     def initialize(options)
       @options = options
       @sock_path = options['unix_socket']
@@ -24,8 +29,11 @@ module Mrscs
     end
     
     #
-    # 入力スレッド開始
+    # Unixドメインソケットサーバを起動します。
     #
+    # ==== Args
+    # ==== Return
+    # ==== Raise
     def start
       @log.info("データ受信スレッド開始...")
       while true
@@ -65,6 +73,10 @@ module Mrscs
     #
     # デリゲート通知
     #
+    # ==== Args
+    # _data_ :: デリゲートに通知するデータ
+    # ==== Return
+    # ==== Raise
     def notify_delegate(data)
       unless @delegate.nil?
         @delegate.request_send(data)
@@ -72,5 +84,4 @@ module Mrscs
     end
     
   end # Receiver
-  
 end # Mrscs
