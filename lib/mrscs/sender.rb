@@ -94,13 +94,13 @@ module Mrscs
           @socket.write(data)
         elsif @data_mode == 1
           @log.info("データにJMAヘッダを付与して送信します。")
-          jmaheader_added_data = HeaderHelper.add_jma_header(data)
-          @socket.write(jmaheader_added_data)
+          jmadata = HeaderHelper.add_jma_header(data)
+          @socket.write(jmadata)
         elsif @data_mode == 2
           @log.info("データにBCHとJMAヘッダを付与して送信します。")
-          bchheader_added_data = HeaderHelper.add_bch_header(data)
-          jmaheader_added_data = HeaderHelper.add_jma_header(bchheader_added_data)
-          @socket.write(jmaheader_added_data)
+          bchdata = HeaderHelper.add_bch_header(data)
+          jmadata = HeaderHelper.add_jma_header(bchdata)
+          @socket.write(jmadata)
         end
       rescue => err
         @log.error(err)

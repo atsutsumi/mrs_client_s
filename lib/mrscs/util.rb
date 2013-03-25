@@ -40,6 +40,6 @@ module Mrscs
 				yaml_config ||= YAML.load(File.open(File.join(get_config_path(__FILE__), config_file_name)))
 				return yaml_config
 		end
-
+		
 	end  # Util
 end # Mrscs

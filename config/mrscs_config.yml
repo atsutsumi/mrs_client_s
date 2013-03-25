@@ -1,5 +1,7 @@
 # 接続先サーバのIPアドレスまたはホスト名
-host: "203.138.187.88"
+# host: "203.138.187.88" # prototype A
+# host: "203.138.187.89" # prototype B
+host: "localhost" # local
 
 # 接続先サーバのポート番号
 port: 30000

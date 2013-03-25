@@ -7,8 +7,6 @@ module Mrscs
   # 
   class HeaderHelper
   
-    @@bch_config = {}
-  
     #
     # JMAヘッダを付与
     #
@@ -74,35 +72,16 @@ module Mrscs
       str_bch = "#{str_bch}#{@@bch_config['recv_agency_termno']}"
       
       # BCHヘッダをバイナリ化して付与
-      bin_bch = to_bin(str_bch)
+      bin_bch = str_bch.bit2bin
       
       "#{bin_bch}#{data}"
     end
     
     #
-    # BCHヘッダをバイナリデータに変換するためのユーティリティメソッド
     #
-    # ==== Args
-    # _str_ :: BCH部分の文字列表現
-    # ==== Return
-    # _String_ :: BCHヘッダをバイナリ化したもの
-    # ====Raise
-    def self.to_bin(str)
-      # StringIOの機能でバイナリ化する
-      sio = StringIO.new()
+    #
+    def self.gen_checksum(str_bch)
       
-      # 8文字ずつ文字列を取得しバイナリデータ化する
-      (0..str.length).step(8) do |s|
-        i = str[s,8].to_i(2)
-        sio.putc(i)
-      end
-
-      # IOのカーソルを先頭に戻し先頭からバイナリデータを取得
-      sio.pos = 0
-      ret_str = sio.gets
-      ret_str.force_encoding("ASCII-8BIT")
-      
-      return ret_str
     end
 
   end # HeaderHelper
