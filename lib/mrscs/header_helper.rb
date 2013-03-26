@@ -77,7 +77,11 @@ module Mrscs
       # BCHヘッダをバイナリ化して付与
       bin_bch = str_bch.bit2bin
       
-      "#{bin_bch}#{data}"
+      # TCHヘッダも付与
+      header = "#{bin_bch}#{@@bch_config['tch']}"
+      
+      # dataにヘッダを付与
+      "#{header}#{data}"
     end
     
     #
