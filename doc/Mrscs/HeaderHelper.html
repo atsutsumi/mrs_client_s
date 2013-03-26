@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Mrscs::HeaderHelper - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/mrscs/header_helper.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-add_bch_header">::add_bch_header</a>
+    
+    <li><a href="#method-c-add_jma_header">::add_jma_header</a>
+    
+    <li><a href="#method-c-gen_checksum">::gen_checksum</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../bin/mrscs.html">mrscs</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Mrscs.html">Mrscs</a>
+  
+    <li><a href="../Mrscs/HeaderHelper.html">Mrscs::HeaderHelper</a>
+  
+    <li><a href="../Mrscs/Main.html">Mrscs::Main</a>
+  
+    <li><a href="../Mrscs/Receiver.html">Mrscs::Receiver</a>
+  
+    <li><a href="../Mrscs/Sender.html">Mrscs::Sender</a>
+  
+    <li><a href="../Mrscs/Util.html">Mrscs::Util</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Mrscs::HeaderHelper</h1>
+
+  <div id="description" class="description">
+    
+<p>送信データにヘッダを付与するためのヘルパークラス</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-add_bch_header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_bch_header</span><span
+            class="method-args">(data)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>BCHヘッダを付与</p>
+
+<h4 id="method-c-add_bch_header-label-Args">Args</h4>
+<dl class="rdoc-list note-list"><dt><em>data</em> 
+<dd>
+<p>送信データ</p>
+</dd></dl>
+
+<h4 id="method-c-add_bch_header-label-Return">Return</h4>
+<dl class="rdoc-list note-list"><dt><em><a href="../String.html">String</a></em> 
+<dd>
+<p>BCHヘッダを付与したデータを返却</p>
+</dd></dl>
+
+<h4 id="method-c-add_bch_header-label-Raise">Raise</h4>
+          
+
+          
+          <div class="method-source-code" id="add_bch_header-source">
+            <pre><span class="ruby-comment"># File lib/mrscs/header_helper.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">add_bch_header</span>(<span class="ruby-identifier">data</span>)
+  
+  <span class="ruby-comment"># BCH定義ロード</span>
+  <span class="ruby-identifier">@@bch_config</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Util</span>.<span class="ruby-identifier">get_yaml_config</span>(<span class="ruby-string">&quot;bch_config.yml&quot;</span>)
+  
+  <span class="ruby-comment"># BCHヘッダ用文字列作成</span>
+  <span class="ruby-comment"># 順序が重要なため注意</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-string">''</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['version']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['size']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['reserve1']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['sequence_no']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['relay_type']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['earthquake_flg']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['reserve2']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['test_flg']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['xml_flg']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['degree_of_secrecy']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['data_attribute']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['distribute_info']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['data_type']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['reserve3']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['bif_resend_flg']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['bif_data_attribute']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['bif_data_type']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['an_length']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['checksum']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['send_agency_major']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['send_agency_bit']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['send_agency_termno']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['recv_agency_major']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['recv_agency_bit']}&quot;</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-node">&quot;#{str_bch}#{@@bch_config['recv_agency_termno']}&quot;</span>
+  
+  <span class="ruby-comment"># チェックサム値を作成</span>
+  <span class="ruby-identifier">str_bch</span> = <span class="ruby-identifier">gen_checksum</span>(<span class="ruby-identifier">str_bch</span>)
+  
+  <span class="ruby-comment"># BCHヘッダをバイナリ化して付与</span>
+  <span class="ruby-identifier">bin_bch</span> = <span class="ruby-identifier">str_bch</span>.<span class="ruby-identifier">bit2bin</span>
+  
+  <span class="ruby-comment"># TCHヘッダも付与</span>
+  <span class="ruby-identifier">header</span> = <span class="ruby-node">&quot;#{bin_bch}#{@@bch_config['tch']}&quot;</span>
+  
+  <span class="ruby-comment"># dataにヘッダを付与</span>
+  <span class="ruby-node">&quot;#{header}#{data}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_bch_header-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_bch_header-method -->
+
+    
+      <div id="method-c-add_jma_header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_jma_header</span><span
+            class="method-args">(data)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>JMAヘッダを付与</p>
+
+<h4 id="method-c-add_jma_header-label-Args">Args</h4>
+<dl class="rdoc-list note-list"><dt><em>data</em> 
+<dd>
+<p>送信データ</p>
+</dd></dl>
+
+<h4 id="method-c-add_jma_header-label-Return">Return</h4>
+<dl class="rdoc-list note-list"><dt><em><a href="../String.html">String</a></em> 
+<dd>
+<p>JMAヘッダを付与したデータを返却</p>
+</dd></dl>
+
+<p>Raise</p>
+          
+
+          
+          <div class="method-source-code" id="add_jma_header-source">
+            <pre><span class="ruby-comment"># File lib/mrscs/header_helper.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">add_jma_header</span>(<span class="ruby-identifier">data</span>)
+  
+  <span class="ruby-comment"># JMA設定ロード</span>
+  <span class="ruby-identifier">@@jma_config</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Util</span>.<span class="ruby-identifier">get_yaml_config</span>(<span class="ruby-string">&quot;jma_config.yml&quot;</span>)
+  
+  <span class="ruby-comment"># データ種別</span>
+  <span class="ruby-identifier">message_type</span> = <span class="ruby-identifier">@@jma_config</span>[<span class="ruby-string">'type'</span>]
+  
+  <span class="ruby-comment"># 8桁の文字列に変換(先頭は0埋め)</span>
+  <span class="ruby-identifier">message_length</span> = <span class="ruby-identifier">format</span>(<span class="ruby-string">&quot;%08d&quot;</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span>)
+  
+  <span class="ruby-comment"># データ作成</span>
+  <span class="ruby-node">&quot;#{message_length}#{message_type}#{data}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_jma_header-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_jma_header-method -->
+
+    
+      <div id="method-c-gen_checksum" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gen_checksum</span><span
+            class="method-args">(str_bch)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>引数のBCH文字列からチェックサム値を作成</p>
+
+<h4 id="method-c-gen_checksum-label-Args">Args</h4>
+<dl class="rdoc-list note-list"><dt>_str_bch 
+<dd>
+<p>BCHの2進文字列表現</p>
+</dd></dl>
+
+<h4 id="method-c-gen_checksum-label-Return">Return</h4>
+<dl class="rdoc-list note-list"><dt><em><a href="../String.html">String</a></em> 
+<dd>
+<p>引数にチェックサム値を挿入した文字列</p>
+</dd></dl>
+
+<h4 id="method-c-gen_checksum-label-Raise">Raise</h4>
+          
+
+          
+          <div class="method-source-code" id="gen_checksum-source">
+            <pre><span class="ruby-comment"># File lib/mrscs/header_helper.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gen_checksum</span>(<span class="ruby-identifier">str_bch</span>)
+  <span class="ruby-identifier">sum</span> = <span class="ruby-value">0</span>
+  <span class="ruby-comment"># BCHを16桁づつ分割し全て加算</span>
+  <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-value">9</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># チェックサム部分は加算をスキップ</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">==</span> <span class="ruby-value">5</span>
+    <span class="ruby-identifier">tmp</span> = <span class="ruby-identifier">str_bch</span>[<span class="ruby-identifier">index</span>*<span class="ruby-value">16</span>, <span class="ruby-value">16</span>]
+    <span class="ruby-identifier">sum</span> = <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">tmp</span>.<span class="ruby-identifier">to_i</span>(<span class="ruby-value">2</span>)
+  }
+  
+  <span class="ruby-comment"># 加算結果を32桁の文字列に変換</span>
+  <span class="ruby-identifier">sum</span> = <span class="ruby-identifier">format</span>(<span class="ruby-string">&quot;%.32b&quot;</span>, <span class="ruby-identifier">sum</span>)
+  
+  <span class="ruby-comment"># 上位16桁が0になるまで上位16桁を下位16桁に加算</span>
+  <span class="ruby-identifier">upper</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">under</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># 上位16桁を取得</span>
+    <span class="ruby-identifier">upper</span> = <span class="ruby-identifier">sum</span>[<span class="ruby-value">0</span>, <span class="ruby-value">16</span>].<span class="ruby-identifier">to_i</span>(<span class="ruby-value">2</span>)
+    <span class="ruby-identifier">under</span> = <span class="ruby-identifier">sum</span>[<span class="ruby-value">16</span>,<span class="ruby-value">16</span>].<span class="ruby-identifier">to_i</span>(<span class="ruby-value">2</span>)
+    
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">upper</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    
+    <span class="ruby-comment"># 上位16桁と下位16桁を加算</span>
+    <span class="ruby-identifier">tmp_sum</span> = <span class="ruby-identifier">upper</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">under</span>
+    
+    <span class="ruby-comment"># 加算結果を32桁の文字列に変換</span>
+    <span class="ruby-identifier">sum</span> = <span class="ruby-identifier">format</span>(<span class="ruby-string">&quot;%.32b&quot;</span>, <span class="ruby-identifier">sum</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-comment"># 計算されたチェックサム値</span>
+  <span class="ruby-identifier">checksum</span> = <span class="ruby-identifier">format</span>(<span class="ruby-string">&quot;%16b&quot;</span>, <span class="ruby-operator">~</span><span class="ruby-identifier">under</span>&amp;<span class="ruby-value">0xFFFF</span>)
+  
+  <span class="ruby-comment"># 引数のBCH文字列にチェックサム値を挿入して返却する</span>
+  <span class="ruby-identifier">str_bch</span>[<span class="ruby-value">80</span>,<span class="ruby-value">16</span>] = <span class="ruby-identifier">checksum</span>
+  
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str_bch</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- gen_checksum-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- gen_checksum-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Mrscs::Util - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/mrscs/util.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-get_config_path">::get_config_path</a>
+    
+    <li><a href="#method-c-get_parent_path">::get_parent_path</a>
+    
+    <li><a href="#method-c-get_yaml_config">::get_yaml_config</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../bin/mrscs.html">mrscs</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Mrscs.html">Mrscs</a>
+  
+    <li><a href="../Mrscs/HeaderHelper.html">Mrscs::HeaderHelper</a>
+  
+    <li><a href="../Mrscs/Main.html">Mrscs::Main</a>
+  
+    <li><a href="../Mrscs/Receiver.html">Mrscs::Receiver</a>
+  
+    <li><a href="../Mrscs/Sender.html">Mrscs::Sender</a>
+  
+    <li><a href="../Mrscs/Util.html">Mrscs::Util</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Mrscs::Util</h1>
+
+  <div id="description" class="description">
+    
+<p>アプリケーションで共通して使用するユーティリティメソッドを定義します。</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-get_config_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_config_path</span><span
+            class="method-args">(file_path)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>configファイルが保存されているディレクトリパスを取得します。 引数で指定されたパスから “../config”
+でたどったパスにconfigが保存されていることが前提です。</p>
+
+<h4 id="method-c-get_config_path-label-Args">Args</h4>
+<dl class="rdoc-list note-list"><dt><em>file_path</em> 
+<dd>
+<p>ディレクトリのパス(<a href="../String.html">String</a>)</p>
+</dd></dl>
+
+<h4 id="method-c-get_config_path-label-Return">Return</h4>
+<dl class="rdoc-list note-list"><dt><em><a href="../String.html">String</a></em> 
+<dd>
+<p>親ディレクトリのパス</p>
+</dd></dl>
+
+<h4 id="method-c-get_config_path-label-Raise">Raise</h4>
+          
+
+          
+          <div class="method-source-code" id="get_config_path-source">
+            <pre><span class="ruby-comment"># File lib/mrscs/util.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_config_path</span>(<span class="ruby-identifier">file_path</span>)
+        <span class="ruby-ivar">@config_path</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">get_parent_path</span>(<span class="ruby-identifier">file_path</span>), <span class="ruby-string">&quot;config&quot;</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@config_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_config_path-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_config_path-method -->
+
+    
+      <div id="method-c-get_parent_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_parent_path</span><span
+            class="method-args">(file_path)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>引数で指定されたパスの親ディレクトリのパスを取得します。</p>
+
+<h4 id="method-c-get_parent_path-label-Args">Args</h4>
+<dl class="rdoc-list note-list"><dt><em>file_path</em> 
+<dd>
+<p>ディレクトリのパス(<a href="../String.html">String</a>)</p>
+</dd></dl>
+
+<h4 id="method-c-get_parent_path-label-Return">Return</h4>
+<dl class="rdoc-list note-list"><dt><em><a href="../String.html">String</a></em> 
+<dd>
+<p>親ディレクトリのパス</p>
+</dd></dl>
+
+<h4 id="method-c-get_parent_path-label-Raise">Raise</h4>
+          
+
+          
+          <div class="method-source-code" id="get_parent_path-source">
+            <pre><span class="ruby-comment"># File lib/mrscs/util.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_parent_path</span>(<span class="ruby-identifier">file_path</span>)
+        <span class="ruby-ivar">@parent_path</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">file_path</span>)))
+        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@parent_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_parent_path-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_parent_path-method -->
+
+    
+      <div id="method-c-get_yaml_config" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_yaml_config</span><span
+            class="method-args">(config_file_name)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>configディレクトリのYamlファイルをロードしてHash形式で取得します。</p>
+
+<h4 id="method-c-get_yaml_config-label-Args">Args</h4>
+<dl class="rdoc-list note-list"><dt><em>config_file_name</em> 
+<dd>
+<p>configファイル名称(configディレクトリ内のファイルであることが前提)</p>
+</dd></dl>
+
+<h4 id="method-c-get_yaml_config-label-Return">Return</h4>
+<dl class="rdoc-list note-list"><dt><em>Hash</em> 
+<dd>
+<p>yamlファイル内容</p>
+</dd></dl>
+
+<h4 id="method-c-get_yaml_config-label-Raise">Raise</h4>
+          
+
+          
+          <div class="method-source-code" id="get_yaml_config-source">
+            <pre><span class="ruby-comment"># File lib/mrscs/util.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_yaml_config</span>(<span class="ruby-identifier">config_file_name</span>)
+                <span class="ruby-identifier">yaml_config</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">get_config_path</span>(<span class="ruby-keyword">__FILE__</span>), <span class="ruby-identifier">config_file_name</span>)))
+                <span class="ruby-keyword">return</span> <span class="ruby-identifier">yaml_config</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_yaml_config-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_yaml_config-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

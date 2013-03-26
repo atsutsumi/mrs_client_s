@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class String - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/mrscs.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-bin2bit">#bin2bit</a>
+    
+    <li><a href="#method-i-bit2bin">#bit2bin</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./bin/mrscs.html">mrscs</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Mrscs.html">Mrscs</a>
+  
+    <li><a href="./Mrscs/HeaderHelper.html">Mrscs::HeaderHelper</a>
+  
+    <li><a href="./Mrscs/Main.html">Mrscs::Main</a>
+  
+    <li><a href="./Mrscs/Receiver.html">Mrscs::Receiver</a>
+  
+    <li><a href="./Mrscs/Sender.html">Mrscs::Sender</a>
+  
+    <li><a href="./Mrscs/Util.html">Mrscs::Util</a>
+  
+    <li><a href="./String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class String</h1>
+
+  <div id="description" class="description">
+    
+<p>Stringクラス拡張</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-bin2bit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bin2bit</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>バイナリを2進文字列に変換します。</p>
+
+<h4 id="method-i-bin2bit-label-Args">Args</h4>
+
+<h4 id="method-i-bin2bit-label-Return">Return</h4>
+<dl class="rdoc-list note-list"><dt><em><a href="String.html">String</a></em> 
+<dd>
+<p>2進文字列</p>
+</dd></dl>
+
+<h4 id="method-i-bin2bit-label-Raise">Raise</h4>
+          
+
+          
+          <div class="method-source-code" id="bin2bit-source">
+            <pre><span class="ruby-comment"># File lib/mrscs.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bin2bit</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">'b*'</span>).<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-string">&quot;%02X&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">b</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">''</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- bin2bit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- bin2bit-method -->
+
+    
+      <div id="method-i-bit2bin" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bit2bin</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>2進文字列をバイナリに変換します。</p>
+
+<h4 id="method-i-bit2bin-label-Args">Args</h4>
+
+<h4 id="method-i-bit2bin-label-Return+%E3%83%90%E3%82%A4%E3%83%8A%E3%83%AA%E6%96%87%E5%AD%97%E5%88%97">Return バイナリ文字列</h4>
+
+<h4 id="method-i-bit2bin-label-Raise">Raise</h4>
+          
+
+          
+          <div class="method-source-code" id="bit2bin-source">
+            <pre><span class="ruby-comment"># File lib/mrscs.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bit2bin</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-identifier">s</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/......../</span>).<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> 
+  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">to_i</span>(<span class="ruby-value">2</span>) }.<span class="ruby-identifier">pack</span>(<span class="ruby-string">'C*'</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- bit2bin-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- bit2bin-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
