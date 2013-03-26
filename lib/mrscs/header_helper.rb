@@ -44,6 +44,7 @@ module Mrscs
       @@bch_config ||= Util.get_yaml_config("bch_config.yml")
       
       # BCHヘッダ用文字列作成
+      # 順序が重要なため注意
       str_bch = ''
       str_bch = "#{str_bch}#{@@bch_config['version']}"
       str_bch = "#{str_bch}#{@@bch_config['size']}"
