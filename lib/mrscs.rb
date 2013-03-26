@@ -68,19 +68,6 @@ end # Mrscs
 #
 class String
    
-  # 16進文字列をバイナリに変換します。
-  # ==== Args
-  # ==== Return
-  # _String_ :: バイナリ文字列
-  # ==== Raise
-  # _RuntimeError_ :: 16進文字列以外の場合に例外発生
-  def hex2bin
-    s = self
-    raise "Not a valid hex string" unless(s =~ /^[\da-fA-F]+$/)
-    s = '0' + s if((s.length & 1) != 0)
-    s.scan(/../).map{ |b| b.to_i(16) }.pack('C*')
-  end
-  
   # 2進文字列をバイナリに変換します。
   # ==== Args
   # ==== Return バイナリ文字列
@@ -89,15 +76,6 @@ class String
     s = self
     s.scan(/......../).map{ |b| 
     b.to_i(2) }.pack('C*')
-  end
-  
-  # バイナリを16進文字列に変換します。
-  # ==== Args
-  # ==== Return
-  # _String_ :: 16進文字列
-  # ==== Raise
-  def bin2hex
-    self.unpack('C*').map{ |b| "%02X" % b }.join('')
   end
   
   # バイナリを2進文字列に変換します。
